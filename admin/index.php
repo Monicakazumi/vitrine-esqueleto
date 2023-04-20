@@ -74,7 +74,7 @@
                 $pagina = $page[1] ?? NULL;
                 $id = $page[2] ?? NULL;
 
-                $page = "{$pasta}"/"{$pagina}"; //reconstruindo a require da "paginas/login.php"
+                $page = "{$pasta}/{$pagina}"; //reconstruindo a require da "paginas/login.php"
             }
 
             require "header.php";

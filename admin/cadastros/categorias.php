@@ -1,6 +1,6 @@
-  <!-- formulario com campo id, nome e botao -->
+<!-- formulario com campo id, nome e botao -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,10 @@
         <div class="card-body">
             <form method="post" action="salvar/categorias">
                 <label for="id">ID da Categoria</label>
-                <input type="text" name="id" id="id" class="form-control" required value="" placeholder="Digite o nome:">
+                <input type="text" name="id" id="id" class="form-control" value="" placeholder="">
 
                 <label for="nome">Nome da Categoria</label>
-                <input type="text" name="nome" id="nome" class="form-control" required value="" placeholder="Digite o id:">
+                <input type="text" name="nome" id="nome" class="form-control" required value="" placeholder="">
                 <br>
                 <button type="submit" class="btn btn-success">Salvar Dados</button>
             </form>
