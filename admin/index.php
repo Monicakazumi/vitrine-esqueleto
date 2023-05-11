@@ -1,7 +1,6 @@
 <?php
-    //preciso pegar a variavel $pdo para conseguir rodar o SELECT no login.php
     session_start();
-    require "../config.php"
+    require "../config.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN</title>
     <base href="<?php echo "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"]; ?>">
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -56,49 +54,39 @@
     <link rel="stylesheet" type="text/css" href="vendor/summernote/summernote.min.css">
     <link rel="stylesheet" type="text/css" href="vendor/summernote/summernote-bs4.min.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css"></script>
+
 </head>
 <body id="page-top">
+
     <?php
         require "funcoes.php";
 
-        if (!isset($_SESSION["usuario"])){
-            require "paginas/login.php"; 
-        }else { 
-            //se caiu aqui, estamos logados - print_r($_GET);exit;
-            //echo "esse vai ser nosso painel ihuuuuu";
+        if (!isset($_SESSION["usuario"])) {
+            require "paginas/login.php";
+        }else {
             //print_r($_GET["param"]);
-            if(isset($_GET["param"])){
-                $page = explode("/", $_GET["param"]); //paginas/home - esplode o "/" e separa paginas[0] e home[1]
-                //pritn_r($page);
+
+            if (isset($_GET["param"])) {
+                $page = explode("/", $_GET["param"]);
+                
                 $pasta = $page[0] ?? NULL;
                 $pagina = $page[1] ?? NULL;
                 $id = $page[2] ?? NULL;
 
-                $page = "{$pasta}/{$pagina}"; //reconstruindo a require da "paginas/login.php"
+                $page = "{$pasta}/{$pagina}";
             }
 
             require "header.php";
 
-            if (file_exists("{$page}.php")){
+            if(file_exists("{$page}.php")) {
                 require "{$page}.php";
-            }else{
+            }else {
                 require "paginas/erro.php";
             }
 
-            // $paginas = $_GET["paginas"] ?? "home";
-            // $paginas = "paginas/{$paginas}.php";
-
-            // if (file_exists($paginas)){
-            //     require "paginas/home.php";
-            // }else {
-            //     echo "erro";
-            // }
-
+            require "footer.php";
         }
-        
-        require "footer.php";
-
     ?>
-    
+
 </body>
 </html>
